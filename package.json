@@ -4,7 +4,7 @@
   "main": "dist/sigmaui.js",
   "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "types": "./dist/index.d.ts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-react": "^7.10.4",
@@ -30,7 +30,8 @@
   },
   "scripts": {
     "dev": "parcel src/docs/index.html",
-    "build": "microbundle --jsx React.createElement"
+    "build": "microbundle --jsx React.createElement --css-modules false",
+    "watch": "microbundle --jsx React.createElement --css-modules false watch"
   },
   "dependencies": {
     "@fortawesome/pro-duotone-svg-icons": "^5.14.0",
