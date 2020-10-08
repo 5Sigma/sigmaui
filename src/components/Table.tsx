@@ -1,5 +1,5 @@
-import React from "react";
-import { Css } from "../util/Css";
+import React from "react"
+import { Css } from "../util/Css"
 
 interface CellProps {
   collapsing?: boolean

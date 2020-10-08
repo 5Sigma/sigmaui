@@ -1,0 +1,16 @@
+@import "./variables.scss";
+
+.ui.label {
+    background: #eee;
+    font-size: 0.8em;
+    border-radius: 4px;
+    display: inline-block;
+    padding: $item-spacing / 2 $item-spacing *2;
+    white-space: nowrap;
+    font-weight: bold;
+    color: #444;
+}
+
+.ui.label + .ui.label {
+    margin-right: $item-spacing;
+}

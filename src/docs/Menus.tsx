@@ -1,5 +1,5 @@
 import React from "react"
-import { Menu, Panel, Header, ColumnMenu } from "../index"
+import { Menu, Header, ColumnMenu } from "../index"
 import { faCalendar, faUser, faUsers } from "@fortawesome/pro-solid-svg-icons"
 
 export default function () {

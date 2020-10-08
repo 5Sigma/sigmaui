@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react"
 import { IconProp } from "@fortawesome/fontawesome-svg-core"
-import {faChevronDown} from "@fortawesome/pro-light-svg-icons"
+import { faChevronDown } from "@fortawesome/pro-light-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Icon } from "./Icon"
 import { Progress, ProgressProps } from "./Progress"
@@ -95,7 +95,7 @@ Panel.ProgressFooter = function (props: ProgressProps) {
 Panel.LoadMoreFooter = function () {
   return (
     <div className="panel-footer" style={{ textAlign: "center" }}>
-      <Button basic icon={faChevronDown} />
+      <Button basic icon={ faChevronDown } />
     </div>
   )
 }
