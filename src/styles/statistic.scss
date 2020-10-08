@@ -1,0 +1,15 @@
+.ui.statistic-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ui.statistic {
+  text-align: center;
+  .statistic-label {
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  .statistic-value {
+    font-size: 44px;
+  }
+}

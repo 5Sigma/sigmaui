@@ -1,0 +1,11 @@
+// colors 
+@each $name, $color in $colors {
+  .ui.#{"" + $name}.box {
+    background-color: $color;
+  } 
+}
+
+
+.ui.box.centered {
+  margin: auto auto;
+}

@@ -1,0 +1,26 @@
+@import "./variables";
+
+.ui.dropdown {
+  background: #fff;
+  .dropdown-item {
+    padding: $item-spacing $item-spacing * 3 $item-spacing $item-spacing * 4;
+    background-color: #fff;
+    cursor: pointer;
+    color: #444;
+    .icon {
+      color: #999;
+      margin-right: $item-spacing *2;
+    }
+    &:hover {
+      color: #000;
+      background-color: #f5f5f5;
+      .icon {
+        color: #444;
+      }
+    }
+  }
+  &.active {
+    border: 1px solid $border-color;
+    background-color: #f5f5f5;
+  }
+}

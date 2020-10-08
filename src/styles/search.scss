@@ -1,0 +1,40 @@
+@import "./variables.scss";
+
+
+.ui.search {
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 35px;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    .icon {
+        width: 20px;
+        display: block;
+        margin: auto auto;
+        margin-left: 10px;
+    }
+    input {
+        display: block;
+        border: none;
+        padding: $item-spacing $item-spacing * 2;
+    }
+}
+
+.ui.search-results {
+    background: white;
+    min-width: 200px;
+    text-align: left;
+    .search-item {
+        border-bottom: 1px solid #eee;
+        padding: 8px 14px;
+        cursor: pointer;
+        .icon {
+            margin-right: 15px;
+        } 
+        &:hover {
+            background: #eee;
+        }
+    }
+}

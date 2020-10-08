@@ -1,0 +1,25 @@
+//colors
+$colors: (
+  red: #ff0000,
+  purple: #cc00cc,
+  white: #fff,
+  black: #000,
+  green: #00ff00,
+  blue: #0000ff, 
+  yellow: #ffff00,
+  cyan: #00ffff,
+);
+
+$primary: map-get($colors, red);
+
+$sizes: (
+  small: 0.5,
+  medium: 1,
+  large: 1.5,
+  huge: 2
+);
+
+$border-color: #ddd;
+
+$component-spacing: 15px;
+$item-spacing: 5px;

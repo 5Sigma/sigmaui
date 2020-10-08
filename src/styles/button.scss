@@ -1,0 +1,53 @@
+.ui.button {
+  margin: $item-spacing 0;
+  font-size: 0.9rem;
+  padding: 0.25em 0.75em;
+  background: #fff;
+  border: 1px solid $border-color;
+  min-width: 10ch;
+  min-height: 34px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #444;
+
+  &:hover {
+    background: #f5f5f5;
+    transition: all 0.2s;
+  }
+
+  &.icon-only {
+    svg { margin: auto auto }
+  }
+
+  .icon {
+    margin-right: $item-spacing;    
+  }
+}
+
+.ui.button-component + .ui.button-component {
+  margin-left: $item-spacing;
+}
+
+.ui.button.primary {
+  background-color: #444;
+  border-color: transparent;
+  color: #fff;
+  &:hover {
+    background-color: #000;
+  }
+}
+
+.ui.button.danger {
+  background-color: darken(map-get($colors, red), 10);
+  border-color: transparent;
+  color: #fff;
+  &:hover {
+    background-color: darken(map-get($colors, red), 20);
+  }
+}
+
+.ui.button.basic {
+  border: none;
+}

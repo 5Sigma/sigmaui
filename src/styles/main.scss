@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+@import "../../node_modules/scss-reset/dist/main";
+@import "variables.scss";
+@import "grid.scss";
+@import "box.scss";
+@import "typography.scss";
+@import "header.scss";
+@import "container.scss";
+@import "panel.scss";
+@import "menu.scss";
+@import "button.scss";
+@import "popover.scss";
+@import "table.scss";
+@import "statistic.scss";
+@import "progress.scss";
+@import "dropdown.scss";
+@import "search.scss";
+@import "form.scss";
+@import "modal.scss";
+
+
+html, body {
+  margin: 0;
+  background-color: #f5f5f5;
+  font-family: 'Karla', sans-serif;
+}
+
+.tippy-tooltip {
+  padding: 0 !important;
+}
