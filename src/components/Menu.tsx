@@ -32,7 +32,7 @@ Menu.Item = function (props: ItemProps) {
   const css = Css().add(props.css).add("item").if(props.active, "active").styles
   return (
     <div className={css}>
-      {props.icon && <Icon icon={props.icon} />}
+      {props.icon && <Icon size="lg" icon={props.icon} />}
       {props.label && (
         <span className="text">
           {props.label}
@@ -61,11 +61,16 @@ interface DropDownItemProps {
   header?: boolean
   label?: string
   icon?: IconProp
+  danger?: boolean
+  primary?: boolean
 }
 
 Menu.DropDownItem = function (props: DropDownItemProps) {
+
+  const css = Css().add("dropdown-item").if(props.danger, "danger").if(props.primary, "primary").styles
+  
   return (
-    <div className="dropdown-item">
+    <div className={css}>
       {props.icon && (
         <Icon icon={props.icon} />
       )}

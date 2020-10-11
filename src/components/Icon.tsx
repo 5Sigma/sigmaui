@@ -5,6 +5,8 @@ type IconProps = FontAwesomeIconProps
 
 export function Icon(props: IconProps) {
   return (
-    <FontAwesomeIcon {...props} className="icon" />
+    <div className="icon">
+      <FontAwesomeIcon {...props} />
+    </div>
   )
 }

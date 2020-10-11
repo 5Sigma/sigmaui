@@ -1,9 +1,10 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { Icon } from "./Icon"
-import React from "react"
+import React, { PropsWithChildren } from "react"
 import { Css } from "../util/Css"
 import { Popover } from "./Popover"
 import { Tooltip } from "./Tooltip"
+import { Tooltip as BaseTooltip} from "react-tippy"
 import {faSpinner} from "@fortawesome/pro-light-svg-icons"
 
 interface ButtonProps {
@@ -65,5 +66,19 @@ Button.Tooltip = function (props: ButtonTooltipProps) {
         <Button {...buttonProps} />
       </Tooltip>
     </span>
+  )
+}
+
+ 
+Button.Dropdown = function(props:  PropsWithChildren<ButtonProps>) {
+  const content = (
+    <div className="ui dropdown">
+      {props.children}
+    </div>
+  ) 
+  return (
+    <BaseTooltip interactive html={content} position="bottom-start" theme="light" trigger="click" distance={3}>
+      <Button {...props} />
+    </BaseTooltip>
   )
 }

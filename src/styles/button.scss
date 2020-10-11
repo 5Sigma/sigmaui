@@ -51,4 +51,11 @@
 
 .ui.button.basic {
   border: none;
+  min-width: auto;
+  background-color: transparent;
+  color: #888;
+  &:hover {
+    background-color: transparent;
+    color: #000;
+  }
 }

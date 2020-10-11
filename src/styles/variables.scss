@@ -13,10 +13,10 @@ $colors: (
 $primary: map-get($colors, red);
 
 $sizes: (
-  small: 0.5,
+  small: 0.9,
   medium: 1,
-  large: 1.5,
-  huge: 2
+  large: 1.2,
+  huge: 1.5
 );
 
 $border-color: #ddd;

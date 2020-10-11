@@ -1,10 +1,15 @@
-import React from "react"
+import React, { CSSProperties } from "react"
 import { Css } from "../util/Css"
+import { Button } from "./Button"
+import {faEllipsisH} from "@fortawesome/pro-solid-svg-icons"
+import {Popover} from "./Popover"
 
 interface CellProps {
   collapsing?: boolean
   colSpan?: number | string
   rowSpan?: number | string
+  width?: number | string
+  onClick?: () => void
 }
 
 interface TableProps {
@@ -20,7 +25,7 @@ export function Table(props: React.PropsWithChildren<TableProps>) {
   )
 }
 
-Table.Header = function (props: React.PropsWithChildren<{}>) {
+Table.Header = function (props: React.PropsWithChildren<Record<string, unknown>>) {
   return (
     <thead>
       {props.children}
@@ -28,7 +33,7 @@ Table.Header = function (props: React.PropsWithChildren<{}>) {
   )
 }
 
-Table.Body = function (props: React.PropsWithChildren<{}>) {
+Table.Body = function (props: React.PropsWithChildren<Record<string, unknown>>) {
   return (
     <tbody>
       {props.children}
@@ -36,7 +41,7 @@ Table.Body = function (props: React.PropsWithChildren<{}>) {
   )
 }
 
-Table.Footer = function (props: React.PropsWithChildren<{}>) {
+Table.Footer = function (props: React.PropsWithChildren<Record<string, unknown>>) {
   return (
     <tfoot>
       {props.children}
@@ -45,13 +50,14 @@ Table.Footer = function (props: React.PropsWithChildren<{}>) {
 }
 
 interface TableRowProps {
-  onClick?: () => void;
+  selectable?: boolean
+  onClick?: () => void
 }
 
 Table.Row = function (props: React.PropsWithChildren<TableRowProps>) {
-  const css = Css().if(!!props.onClick, "selectable").styles
+  const css = Css().if(!!props.selectable, "selectable").styles
   return (
-    <tr className={css}>
+    <tr className={css} onClick={props.onClick}>
       {props.children}
     </tr>
   )
@@ -59,17 +65,39 @@ Table.Row = function (props: React.PropsWithChildren<TableRowProps>) {
 
 Table.Cell = function (props: React.PropsWithChildren<CellProps>) {
   const css = Css().if(props.collapsing, "collapsing").styles
+  const styles: CSSProperties = {}
+  if (props.width) {
+    styles.width = props.width
+  }
   return (
-    <td className={css} colSpan={parseInt(props.colSpan?.toString() || "1")} rowSpan={parseInt(props.rowSpan?.toString() || "1")}>
+    <td className={css} style={styles} colSpan={parseInt(props.colSpan?.toString() || "1")} rowSpan={parseInt(props.rowSpan?.toString() || "1")} onClick={props.onClick}>
       {props.children}
     </td>
   )
 }
 
+interface ActionCellProps {
+  children?: React.ReactNode
+}
+
+Table.ActionCell = function(props: ActionCellProps) { 
+  return (
+    <Table.Cell collapsing>
+      <Button.Dropdown basic icon={faEllipsisH}>
+        {props.children}
+      </Button.Dropdown>
+    </Table.Cell>
+  )
+}
+
 Table.HeaderCell = function (props: React.PropsWithChildren<CellProps>) {
   const css = Css().if(props.collapsing, "collapsing").styles
+  const styles: CSSProperties = {}
+  if (props.width) {
+    styles.width = props.width
+  }
   return (
-    <th className={css}>
+    <th className={css} style={styles}>
       {props.children}
     </th>
   )

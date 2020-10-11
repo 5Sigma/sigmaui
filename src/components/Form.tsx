@@ -1,5 +1,6 @@
-import React from "react"
-import Select, { Styles, OptionsType, GroupedOptionsType} from "react-select"
+import React, { ChangeEvent } from "react"
+import Select, { Styles, OptionsType, GroupedOptionsType } from "react-select"
+import {Tooltip as Tippy} from "react-tippy"
 
 export interface FormProps {
     children: React.ReactNode
@@ -15,22 +16,44 @@ export function Form(props:FormProps) {
 
 interface InputProps {
     label?: string
+    value?: string | number | null
+    required?: boolean
+    placeholder?: string
+    input?: React.ReactNode
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+    onFocus?: () => void
+    onBlur?: () => void
 }
 
 Form.Input = function(props:InputProps) {
+
+  const input = props.input ||  (
+    <input 
+      className="ui input" 
+      onChange={props.onChange} 
+      onFocus={props.onFocus}
+      placeholder={props.placeholder} />
+  )
+
   return (
     <div className="ui field">
       <label>
         {props.label}
       </label>
-      <input className="ui input" />
+      {input}
     </div>
   )
 }
 
+interface SelectData {
+  label: string
+  value: string | number | undefined
+}
+
 interface SelectProps {
   label?: string
-  options?: OptionsType<{ label: string; value: string; }> | GroupedOptionsType<{ label: string; value: string; }>
+  options?: OptionsType<SelectData> | GroupedOptionsType<SelectData>
+  onInputChange?: (v:string) => void;
 }
 
 
@@ -49,13 +72,32 @@ const selectStyle:Styles = {
   })
 }
 
+interface SelectData {
+  label: string
+  value: string | number | undefined
+}
+
+interface SelectProps {
+  label?: string
+  loading?: boolean
+  options?: OptionsType<SelectData> | GroupedOptionsType<SelectData>
+  onInputChange?: (v:string) => void;
+  placeholder?: string
+}
+
+
 Form.Select = function(props: SelectProps) {
   return (
     <div className="ui field">
       <label>
         {props.label}
       </label>
-      <Select styles={selectStyle} options={props.options} />
+      <Select 
+        isLoading={props.loading}
+        styles={selectStyle} 
+        placeholder={props.placeholder}
+        options={props.options} 
+        onInputChange={props.onInputChange} />
     </div>
   )
 }
@@ -78,3 +120,27 @@ Form.Switch = function(props:SwitchProps) {
     </div>
   )
 }
+
+interface DatePickerProps extends InputProps {
+  value?: string
+}
+
+function DateInput (props: DatePickerProps) {
+  const [open, setOpen] = React.useState(false)
+
+  const picker = (
+    <div>
+      sdfasdf
+    </div>
+  )
+
+  return (
+    <Tippy trigger="manual" interactive html={picker} open={open}>
+      <Form.Input {...props} 
+        onBlur={() => setOpen(false)}
+        onFocus={() => setOpen(true)} />
+    </Tippy>
+  )
+}
+
+Form.DateInput = DateInput

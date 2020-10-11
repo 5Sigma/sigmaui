@@ -2,14 +2,14 @@
 
 .ui.progress {
   width: 100%;
-  background-color: #555;
+  background-color: #eee;
   border: 1px solid $border-color;
   height: 24px;
   border-radius: 4px;
   overflow: hidden;
 
   .filled {
-    background-color: darken($primary, 10);
+    background-color: #ccc;
     height: 24px;
   } 
 }

@@ -10,6 +10,7 @@
     }
     .ui.input {
         border: 1px solid #eee;
+        border-radius: 4px;
         display: block;
         width: 100%;
         padding: .6em 1em;
@@ -17,7 +18,8 @@
         transition: all 0.4s;
         &:focus {
             transition: all 0.4s;
-            border: 1px solid #444;
+            border: 1px solid #999;
+            box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
         }
     }
 }
